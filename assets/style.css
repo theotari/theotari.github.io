@@ -1,0 +1,70 @@
+@font-face { font-family: "Fredoka"; src: url("fonts/Fredoka-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Nunito"; src: url("fonts/Nunito-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Nunito"; src: url("fonts/Nunito-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+
+:root {
+  --cream: #FFF6E5;
+  --card: #FFFFFF;
+  --ink: #2E2A47;
+  --muted: #5E5A78;
+  --green: #7BD957;
+  --green-dark: #4E9E3A;
+  --pink: #FF6B8A;
+  --pink-dark: #D94468;
+  --line: #EDE3CF;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cream: #0E1022;
+    --card: #1B1F45;
+    --ink: #F2F4FF;
+    --muted: #B8BCD6;
+    --line: #2B3070;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font: 400 17px/1.6 "Nunito", system-ui, sans-serif;
+}
+header.brand {
+  background: #000;
+  color: #fff;
+  padding: 28px 16px 24px;
+  text-align: center;
+}
+header.brand img { width: 96px; height: 96px; display: block; margin: 0 auto 10px; }
+header.brand .name { font: 700 30px/1.1 "Fredoka", sans-serif; letter-spacing: .5px; }
+header.brand .tagline { color: rgba(255,255,255,.72); margin-top: 6px; font-size: 15px; }
+nav.lang { text-align: center; margin: 16px 0 0; font-weight: 700; }
+nav.lang a { color: var(--green-dark); margin: 0 8px; }
+main { max-width: 760px; margin: 0 auto; padding: 8px 16px 48px; }
+h1, h2, h3 { font-family: "Fredoka", sans-serif; font-weight: 700; line-height: 1.2; }
+h1 { font-size: 30px; margin: 28px 0 8px; }
+h2 { font-size: 23px; margin: 30px 0 8px; }
+h3 { font-size: 19px; margin: 22px 0 6px; }
+a { color: var(--pink-dark); }
+@media (prefers-color-scheme: dark) { a { color: var(--pink); } nav.lang a { color: var(--green); } }
+.card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 18px 0;
+  box-shadow: 0 4px 10px rgba(46,42,71,.10);
+}
+.game { display: flex; gap: 18px; align-items: center; }
+.game img { width: 88px; height: 88px; border-radius: 20px; flex: none; }
+.game h2 { margin: 0 0 4px; }
+.paw { font-size: 28px; }
+.muted { color: var(--muted); font-size: 15px; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 15px; }
+th, td { text-align: left; vertical-align: top; padding: 8px 6px; border-bottom: 1px solid var(--line); }
+th { font-weight: 700; }
+.tablewrap { overflow-x: auto; }
+footer { text-align: center; color: var(--muted); font-size: 14px; padding: 24px 16px 40px; }
+hr.sep { border: 0; border-top: 2px dashed var(--line); margin: 48px 0 8px; }
+@media (max-width: 480px) { .game { flex-direction: column; text-align: center; } }
