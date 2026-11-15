@@ -1,3 +1,2 @@
-# app-ads.txt de minougame (Snek).
-# À compléter avec la ligne fournie par AdMob (Applications > app-ads.txt), de la forme :
-# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+# app-ads.txt de minougame (Snek)
+google.com, pub-3493394579790149, DIRECT, f08c47fec0942fa0
