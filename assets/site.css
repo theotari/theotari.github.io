@@ -471,3 +471,56 @@ html:not(.motion) .trail-svg { display: none; }
   .step .card, .step:nth-child(even) .card { grid-column: 2; }
   .step .dot { grid-column: 1; }
 }
+
+/* ---------- La cause : récit au défilement (comme l'accueil) ---------- */
+.scene .cat-svg { filter: drop-shadow(0 0 1px rgba(255, 255, 255, .55)) drop-shadow(0 0 10px rgba(150, 130, 255, .3)); }
+.lake { position: absolute; left: 0; bottom: 0; width: 100%; height: 44%; z-index: -1; pointer-events: none; }
+.glints { animation: shimmer 2.6s ease-in-out infinite alternate; }
+@keyframes shimmer { from { opacity: .35; } to { opacity: .9; } }
+.jumper { display: none; }
+.pose-leap { display: none; }
+
+/* Sans JS ou mouvement réduit : grande scène, chapitres empilés, lac en bas. */
+.cstage { padding: 120px 16px 46vh; }
+.cintro { text-align: center; margin-bottom: 120px; }
+.cintro .mega { font-size: clamp(54px, 11vw, 132px); }
+.cintro .sub { display: inline-block; }
+.ccards { display: grid; gap: 120px; max-width: 760px; margin: 0 auto; }
+.cstage .tale { position: relative; }
+html:not(.motion) .cstage .hills-back { height: 42vh; }
+html:not(.motion) .cstage .hills-mid { height: 34vh; }
+html:not(.motion) .cstage .hills-front { height: 28vh; }
+html:not(.motion) .cstage .lake { height: 34vh; }
+
+/* Avec mouvement : scène collée, un chapitre à la fois, le chat saute. */
+html.motion .cstory { height: 780vh; }
+html.motion .cstage { position: sticky; top: 0; height: 100vh; height: 100svh; padding: 0; }
+html.motion .cintro, html.motion .ccards .chap {
+  opacity: 0; visibility: hidden; transform: translateY(26px) scale(.98);
+  transition: opacity .5s ease-out, transform .5s ease-out, visibility 0s .5s;
+}
+html.motion .chap.is-active { opacity: 1; visibility: visible; transform: none; transition: opacity .5s ease-out .12s, transform .5s ease-out .12s, visibility 0s; }
+html.motion .cintro { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 16px 18vh; margin: 0; }
+html.motion .ccards { position: absolute; inset: 0; max-width: none; margin: 0; padding: 120px 7% 24vh; display: grid; align-items: center; gap: 0; }
+html.motion .ccards .tale { grid-area: 1 / 1; width: min(560px, 100%); justify-self: start; }
+html.motion .ccards .tale[data-cat="right"] { justify-self: end; }
+html.motion .static-cat { display: none; }
+html.motion .jumper { display: block; position: absolute; left: 0; top: 0; width: 200px; height: 90px; z-index: 6; opacity: 0; transition: opacity .3s; will-change: transform; }
+html.motion .jumper.on { opacity: 1; }
+.jumper-in { position: relative; width: 100%; height: 100%; }
+.jumper-in.flip { transform: scaleX(-1); }
+.jumper .cat-svg { inset: 0; width: 100%; height: 100%; }
+.jumper.leap .pose-sit { display: none; }
+.jumper.leap .pose-leap { display: block; }
+@media (max-width: 760px) {
+  html.motion .ccards { padding: 96px 16px 26vh; }
+  html.motion .ccards .tale, html.motion .ccards .tale[data-cat="right"] { width: 100%; justify-self: stretch; }
+  html.motion .jumper { width: 160px; height: 72px; }
+  .lake { height: 34%; }
+  .cstage .tale { font-size: 16px; }
+}
+
+/* Fin de page : la berge du lac, la pelote et l'appel à écrire. */
+.cause-end { background: linear-gradient(180deg, #1A1856 0%, #0A0A26 100%); color: #fff; padding: 24px 0 72px; }
+.cause-end .cat-svg { filter: drop-shadow(0 0 1px rgba(255, 255, 255, .6)) drop-shadow(0 0 10px rgba(150, 130, 255, .35)); }
+.cause-end .cause-cta p { color: rgba(255, 255, 255, .82); }

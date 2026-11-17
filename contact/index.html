@@ -65,22 +65,27 @@
             <ellipse class="c" cx="101" cy="128" rx="8" ry="4"/><ellipse class="c" cx="119" cy="128" rx="8" ry="4"/>
             <g class="wave"><path class="cs" stroke-width="9" d="M128 90 C140 80 146 66 146 52"/><circle class="c" cx="146" cy="47" r="7"/></g>
           </svg>
-          <!-- bug : chat qui crache sur un cafard -->
+          <!-- bug : chat qui se hérisse, pattes trop longues, en léger recul -->
           <svg class="cat-svg" data-reason="bug" viewBox="0 0 220 130">
-            <g class="hiss">
-              <path class="cs tail from-br" stroke-width="11" d="M54 94 C42 82 40 58 52 46"/>
-              <path class="c" d="M54 128 L58 98 C60 66 84 52 108 56 C128 60 140 76 140 98 L144 128 L134 128 L130 104 C120 108 92 108 78 104 L66 128 Z"/>
-              <path class="c" d="M66 72 L70 56 L77 66 L82 50 L88 62 L94 48 L99 60 L105 48 L110 60 L116 52 L120 66 Z"/>
-              <circle class="c" cx="150" cy="84" r="18"/>
-              <path class="c" d="M140 74 L122 68 L138 84 Z"/><path class="c" d="M150 68 L136 58 L157 70 Z"/>
-              <ellipse class="eye" cx="157" cy="79" rx="4.6" ry="2.4"/><ellipse class="pupil" cx="158" cy="79" rx="1" ry="2.4"/>
-              <path d="M155 90 L171 87 L168 96 Z" fill="var(--surface)"/>
-              <path d="M158 90 l2 5 l2 -5 z M164 89 l2 5 l2 -5 z" fill="#fff"/>
-              <path d="M176 76 l8 -5 M178 86 h10 M176 96 l8 5" fill="none" stroke="var(--link)" stroke-width="2.6" stroke-linecap="round"/>
+            <g transform="rotate(-7 66 128)">
+              <g class="hiss">
+                <path class="cs" stroke-width="5.5" d="M72 72 L58 126 M82 76 L72 126 M116 76 L134 126 M126 72 L148 126"/>
+                <ellipse class="c" cx="56" cy="126" rx="7" ry="3"/><ellipse class="c" cx="70" cy="126" rx="7" ry="3"/>
+                <ellipse class="c" cx="136" cy="126" rx="7" ry="3"/><ellipse class="c" cx="150" cy="126" rx="7" ry="3"/>
+                <path class="c" d="M57 52 L60.2 46.9 L55.7 41.8 L58.5 36.7 L54.4 31.6 L56.7 26.4 L53 21.3 L55 16.2 L51.7 11.1 L53.3 6 L56 0 L61 6 L60.1 11.1 L64.1 16.2 L62.8 21.3 L67.2 26.4 L65.5 31.6 L70.3 36.7 L68.2 41.8 L73.4 46.9 L71 52 Z"/>
+                <path class="c" d="M138 58 L135 60.2 L137.1 62.8 L133.4 64.6 L134.5 67.4 L130.2 68.7 L130.4 71.5 L125.6 72.3 L124.8 75.1 L119.9 75.3 L118 77.9 L113.1 77.5 L110.4 79.9 L105.7 78.9 L102.2 80.9 L98 79.4 L93.8 80.9 L90.3 78.9 L85.6 79.9 L82.9 77.5 L78 77.9 L76.1 75.3 L71.2 75.1 L70.4 72.3 L65.6 71.5 L65.8 68.7 L61.5 67.4 L62.6 64.6 L58.9 62.8 L61 60.2 L58 58 L66.2 56.1 L58.9 53.2 L67.6 52.3 L61.5 48.6 L70.3 48.8 L65.6 44.5 L74.2 45.7 L71.2 40.9 L79.2 43.1 L78 38.1 L85 41.2 L85.6 36.1 L91.3 40 L93.8 35.1 L98 39.6 L102.2 35.1 L104.7 40 L110.4 36.1 L111 41.2 L118 38.1 L116.8 43.1 L124.8 40.9 L121.8 45.7 L130.4 44.5 L125.7 48.8 L134.5 48.6 L128.4 52.3 L137.1 53.2 L129.8 56.1 Z"/>
+                <path class="c" d="M126 48 L141 34 L154 50 L134 64 Z"/>
+                <circle class="c" cx="148" cy="40" r="17"/>
+                <path class="c" d="M138 32 L122 24 L137 44 Z"/><path class="c" d="M150 26 L140 10 L160 27 Z"/>
+                <circle class="eye" cx="142" cy="38" r="5.6"/><circle class="eye" cx="155" cy="38" r="5.6"/>
+                <circle class="pupil" cx="143" cy="38" r="1.7"/><circle class="pupil" cx="156" cy="38" r="1.7"/>
+                <ellipse cx="152" cy="48" rx="2.4" ry="3" fill="#FF8FA8"/>
+              </g>
             </g>
+            <path d="M136 12 l-4 -7 M150 8 v-8 M164 12 l4 -7" fill="none" stroke="var(--link)" stroke-width="2.6" stroke-linecap="round"/>
             <g class="roach">
-              <path d="M196 112 l-4 -6 M202 111 v-7 M208 112 l4 -6 M196 124 l-4 6 M202 125 v7 M208 124 l4 6 M188 116 c-6 -6 -10 -6 -14 -4 M188 120 c-6 2 -10 6 -12 10" fill="none" stroke="#6B3B1F" stroke-width="2" stroke-linecap="round"/>
-              <ellipse cx="203" cy="118" rx="12" ry="7" fill="#7A4424"/><circle cx="190" cy="118" r="4.5" fill="#5A2E14"/>
+              <path d="M194 119 l-3 -4 M199 118 v-5 M204 119 l3 -4 M194 125 l-3 4 M199 126 v5 M204 125 l3 4 M187 121 c-4 -4 -7 -5 -10 -3 M187 123 c-4 1 -7 3 -9 7" fill="none" stroke="#5A3418" stroke-width="1.6" stroke-linecap="round"/>
+              <ellipse cx="199" cy="122" rx="9" ry="5.5" fill="#6B3B1F"/><circle cx="189" cy="122" r="3.4" fill="#4A2510"/>
             </g>
           </svg>
           <!-- idée : chat et ampoule -->

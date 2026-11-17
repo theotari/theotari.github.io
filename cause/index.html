@@ -10,6 +10,7 @@
 <link rel="icon" href="../assets/favicon.png">
 <link rel="preload" href="../assets/fonts/Fredoka-Bold.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/cause.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main"><span lang="fr">Aller au contenu</span><span lang="en">Skip to content</span></a>
@@ -27,8 +28,10 @@
 </header>
 
 <main id="main">
-  <section class="scene page-hero">
-    <div class="sky"></div>
+  <!-- TEXTE PROVISOIRE : à remplacer par le vrai récit de Théo. -->
+  <div class="cstory">
+    <section class="scene cstage">
+      <div class="sky"></div>
     <div class="stars"></div>
     <div class="sun" aria-hidden="true"></div>
     <svg class="hills hills-back" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M0 240 L90 180 L170 210 L280 110 L360 170 L430 140 L540 220 L640 150 L720 90 L800 160 L900 120 L1010 200 L1120 130 L1220 180 L1320 120 L1440 190 V400 H0Z"/></svg>
@@ -47,19 +50,35 @@
         <path d="M36 44 C50 44 52 30 46 24" fill="none" stroke-width="5" stroke-linecap="round"/>
       </g>
     </svg>
-    <div class="wrap">
-      <p class="kicker">minougame</p>
-      <h1 class="mega"><span lang="fr">La cause</span><span lang="en">Our cause</span></h1>
-      <p class="sub slogan">vibe coding for a better cause</p>
-    </div>
-  </section>
+      <svg class="lake" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#A9C2FF"/><stop offset=".4" stop-color="#5A5FCB"/><stop offset="1" stop-color="#1A1856"/>
+          </linearGradient>
+          <clipPath id="flow"><rect class="flow-rect" x="0" y="0" width="1440" height="400"/></clipPath>
+        </defs>
+        <g clip-path="url(#flow)">
+          <path fill="#A9C2FF" opacity=".25" d="M486 6 C466 60 520 100 498 150 C476 200 450 240 458 304 L610 304 C598 240 574 200 590 150 C608 100 554 60 538 6 Z"/>
+          <path fill="url(#water)" d="M498 10 C480 60 532 100 510 150 C490 200 466 240 474 300 L594 300 C582 240 560 200 576 150 C594 100 542 60 526 10 Z"/>
+          <path fill="url(#water)" d="M0 318 C240 288 480 298 720 294 C960 290 1200 298 1440 316 V400 H0 Z"/>
+          <g class="glints" stroke="rgb(var(--glow))" stroke-linecap="round">
+            <path d="M690 318 h60" stroke-width="3"/><path d="M670 336 h100" stroke-width="2.5" opacity=".8"/>
+            <path d="M700 352 h40" stroke-width="3"/><path d="M656 368 h128" stroke-width="2" opacity=".6"/>
+            <path d="M694 384 h52" stroke-width="2.5" opacity=".7"/>
+            <path d="M506 60 v30 M512 130 v24 M506 200 v30" stroke-width="2" opacity=".5"/>
+          </g>
+        </g>
+      </svg>
 
-  <!-- TEXTE PROVISOIRE : à remplacer par le vrai récit de Théo. -->
-  <div class="wrap">
-    <div class="story-list">
+      <div class="cintro chap is-active">
+        <p class="kicker">minougame</p>
+        <h1 class="mega"><span lang="fr">La cause</span><span lang="en">Our cause</span></h1>
+        <p class="sub slogan">vibe coding for a better cause</p>
+      </div>
 
-      <article class="tale">
-        <svg class="cat-svg cat-lying" viewBox="0 0 200 90" aria-hidden="true">
+      <div class="ccards">
+        <article class="tale chap" data-cat="left">
+        <svg class="cat-svg cat-lying static-cat" viewBox="0 0 200 90" aria-hidden="true">
           <path class="cs tail from-tr" stroke-width="10" d="M40 80 C20 82 10 92 10 112 C10 140 20 160 8 184"/>
           <path class="c" d="M36 88 C30 64 50 48 86 48 C118 48 144 52 156 64 L162 88 Z"/>
           <ellipse class="c" cx="178" cy="85" rx="14" ry="5"/><ellipse class="c" cx="154" cy="86" rx="12" ry="5"/>
@@ -73,10 +92,10 @@
         <h2 lang="en">It all started with a cat</h2>
         <p lang="fr">minougame est né d’une idée simple : faire de petits jeux qui donnent le sourire, et faire en sorte qu’ils servent à quelque chose. Le nom vient de « minou », le petit mot doux qu’on donne aux chats en France. Et si tu regardes bien notre logo, un petit chat t’observe depuis le coin du M.</p>
         <p lang="en">minougame was born from a simple idea: make little games that make people smile, and make them useful. The name comes from “minou”, the sweet word French people use for cats. And if you look closely at our logo, a little cat is watching you from the corner of the M.</p>
-      </article>
+        </article>
 
-      <article class="tale">
-        <svg class="cat-svg cat-peek" viewBox="0 0 120 70" aria-hidden="true">
+        <article class="tale chap" data-cat="right">
+        <svg class="cat-svg cat-peek left" viewBox="0 0 120 70" aria-hidden="true">
           <path class="c" d="M36 26 L33 0 L52 15 Z"/><path class="c" d="M68 15 L87 0 L84 26 Z"/>
           <circle class="c" cx="60" cy="40" r="27"/>
           <g class="eyes"><circle class="eye" cx="49" cy="40" r="6.5"/><circle class="eye" cx="71" cy="40" r="6.5"/>
@@ -88,9 +107,9 @@
         <h2 lang="en">Animals waiting for someone</h2>
         <p lang="fr">Chaque année, beaucoup d’animaux sont abandonnés. Les refuges et les associations font un travail immense, souvent avec très peu de moyens : il faut nourrir, soigner, stériliser, trouver une famille… et recommencer le lendemain.</p>
         <p lang="en">Every year, many animals are abandoned. Shelters and associations do enormous work, often with very little money: feeding, caring, neutering, finding a family… and starting again the next day.</p>
-      </article>
+        </article>
 
-      <article class="tale">
+        <article class="tale chap" data-cat="left">
         <svg class="cat-svg cat-curl" viewBox="0 0 160 90" aria-hidden="true">
           <path class="cs tail from-tl" stroke-width="10" d="M136 72 C152 78 156 96 152 120 C150 134 156 142 162 146"/>
           <ellipse class="c" cx="84" cy="66" rx="58" ry="26"/>
@@ -104,9 +123,9 @@
         <h2 lang="en">Free games, one ad at a time</h2>
         <p lang="fr">Nos jeux sont gratuits, et on ne peut rien y acheter avec de l’argent réel. Ce sont les publicités qui les font vivre : des vidéos que tu choisis de regarder pour gagner un bonus, et de temps en temps un écran au retour au menu. Pas de bannière, pas de piège.</p>
         <p lang="en">Our games are free, and nothing in them can be bought with real money. Ads keep them alive: videos you choose to watch to earn a bonus, and now and then a screen when you go back to the menu. No banners, no tricks.</p>
-      </article>
+        </article>
 
-      <article class="tale">
+        <article class="tale chap" data-cat="right">
         <div class="float-cat" aria-hidden="true">
           <svg class="cat-svg" viewBox="0 0 120 140">
             <path class="cs tail from-tl" stroke-width="9" d="M84 128 C108 130 114 108 100 96"/>
@@ -124,10 +143,10 @@
         <h2 lang="en">Where the money goes</h2>
         <p lang="fr">Une partie des revenus publicitaires est reversée à des associations qui protègent les droits des animaux et leur offrent de meilleures conditions en refuge : de la nourriture, des soins, un endroit au chaud en attendant une famille. Chaque partie jouée y contribue, un tout petit peu.</p>
         <p lang="en">Part of the ad revenue is donated to organisations that protect animals’ rights and give them better living conditions in shelters: food, care, a warm place while they wait for a family. Every game you play helps, just a little.</p>
-      </article>
+        </article>
 
-      <article class="tale">
-        <svg class="cat-svg cat-peek left" viewBox="0 0 120 70" aria-hidden="true">
+        <article class="tale chap" data-cat="left">
+        <svg class="cat-svg cat-peek" viewBox="0 0 120 70" aria-hidden="true">
           <path class="c" d="M36 26 L33 0 L52 15 Z"/><path class="c" d="M68 15 L87 0 L84 26 Z"/>
           <circle class="c" cx="60" cy="40" r="27"/>
           <g class="eyes"><ellipse class="eye" cx="49" cy="40" rx="6" ry="5"/><ellipse class="eye" cx="71" cy="40" rx="6" ry="5"/>
@@ -139,17 +158,9 @@
         <h2 lang="en">Nothing to hide</h2>
         <p lang="fr">Le détail (associations soutenues, montants) n’est pas affiché ici, mais il n’a rien de secret. Écris-nous et tu recevras une réponse détaillée, avec plaisir.</p>
         <p lang="en">The details (organisations supported, amounts) aren’t shown here, but they’re no secret. Write to us and you’ll get a detailed answer, gladly.</p>
-      </article>
+        </article>
 
-      <article class="tale">
-        <svg class="cat-svg cat-lying flip" viewBox="0 0 200 90" aria-hidden="true">
-          <path class="cs tail from-tr" stroke-width="10" d="M40 80 C20 82 10 92 10 112 C10 140 20 160 8 184"/>
-          <path class="c" d="M36 88 C30 64 50 48 86 48 C118 48 144 52 156 64 L162 88 Z"/>
-          <ellipse class="c" cx="178" cy="85" rx="14" ry="5"/><ellipse class="c" cx="154" cy="86" rx="12" ry="5"/>
-          <circle class="c" cx="164" cy="52" r="22"/>
-          <path class="c" d="M146 40 L148 16 L163 33 Z"/><path class="c" d="M168 32 L183 16 L185 42 Z"/>
-          <path class="lid" d="M151 53 q5 4 10 0"/><path class="lid" d="M167 53 q5 4 10 0"/>
-        </svg>
+        <article class="tale chap" data-cat="right">
         <span class="num" lang="fr">Chapitre 6</span><span class="num" lang="en">Chapter 6</span>
         <h2 lang="fr">Et toi, comment aider ?</h2>
         <h2 lang="en">And you, how can you help?</h2>
@@ -165,9 +176,42 @@
           <li>Get in touch with a shelter near you: adoption, fostering, volunteering or donations.</li>
           <li>If you adopt, think about identification and neutering.</li>
         </ul>
-      </article>
-    </div>
+        </article>
+      </div>
 
+      <!-- le chat du chapitre 1, qui saute de carte en carte -->
+      <div class="jumper" aria-hidden="true">
+        <div class="jumper-in">
+          <svg class="cat-svg pose-sit" viewBox="0 0 200 90" aria-hidden="true">
+          <path class="cs tail from-tr" stroke-width="10" d="M40 80 C20 82 10 92 10 112 C10 140 20 160 8 184"/>
+          <path class="c" d="M36 88 C30 64 50 48 86 48 C118 48 144 52 156 64 L162 88 Z"/>
+          <ellipse class="c" cx="178" cy="85" rx="14" ry="5"/><ellipse class="c" cx="154" cy="86" rx="12" ry="5"/>
+          <circle class="c" cx="164" cy="52" r="22"/>
+          <path class="c" d="M146 40 L148 16 L163 33 Z"/><path class="c" d="M168 32 L183 16 L185 42 Z"/>
+          <g class="eyes"><ellipse class="eye" cx="156" cy="52" rx="4.5" ry="4"/><ellipse class="eye" cx="172" cy="52" rx="4.5" ry="4"/>
+            <ellipse class="pupil" cx="156" cy="52" rx="1.4" ry="3.6"/><ellipse class="pupil" cx="172" cy="52" rx="1.4" ry="3.6"/></g>
+        </svg>
+          <svg class="cat-svg pose-leap" viewBox="0 0 200 90">
+            <path class="cs tail" stroke-width="8" d="M54 46 C36 38 20 26 6 30"/>
+            <path class="cs" stroke-width="9" d="M62 52 L22 62 M68 56 L30 76 M138 44 L180 52 M134 50 L172 68"/>
+            <ellipse class="c" cx="100" cy="48" rx="54" ry="15" transform="rotate(-8 100 48)"/>
+            <circle class="c" cx="158" cy="32" r="18"/>
+            <path class="c" d="M144 22 L144 0 L158 16 Z"/><path class="c" d="M162 16 L178 2 L178 26 Z"/>
+            <ellipse class="eye" cx="152" cy="32" rx="4.4" ry="5"/><ellipse class="eye" cx="166" cy="32" rx="4.4" ry="5"/>
+            <circle class="pupil" cx="153.5" cy="32" r="2.6"/><circle class="pupil" cx="167.5" cy="32" r="2.6"/>
+          </svg>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#fin">
+        <span lang="fr">Faire défiler</span><span lang="en">Scroll</span>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </a>
+    </section>
+  </div>
+
+  <section class="cause-end" id="fin">
+    <div class="wrap">
     <div class="yarn-scene" aria-hidden="true">
       <svg class="cat-svg cat-yarn" viewBox="0 0 260 120">
         <path d="M196 106 C160 116 90 118 0 112" fill="none" stroke="var(--yarn)" stroke-width="2.5" stroke-linecap="round"/>
@@ -192,7 +236,8 @@
       <p lang="en">A question about our cause, or an organisation we should know about?</p>
       <a class="btn btn-primary" href="../contact/?raison=cause"><span lang="fr">Nous écrire</span><span lang="en">Write to us</span></a>
     </div>
-  </div>
+    </div>
+  </section>
 </main>
 
 <footer>
