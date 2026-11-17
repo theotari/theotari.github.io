@@ -5,34 +5,23 @@
 @font-face { font-family: "Nunito"; src: url("fonts/Nunito-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
 
 :root {
-  --bg: #FFF6E5;
-  --surface: #FFFFFF;
-  --ink: #2E2A47;
-  --muted: #5E5A78;
-  --line: #EDE3CF;
-  --brand: #7BD957;        /* fond des boutons (texte --ink dessus) */
+  /* Thème sombre « nuit » pour tout le site, quel que soit le réglage clair/sombre de l'appareil. */
+  --bg: #0E1022;
+  --surface: #1B1F45;
+  --ink: #F2F4FF;
+  --muted: #B8BCD6;
+  --line: #2B3070;
+  --brand: #7BD957;        /* fond des boutons (texte foncé dessus) */
   --brand-hover: #8FE36D;
-  --green-text: #2F6E22;   /* vert lisible sur fond clair (5,8:1) */
+  --green-text: #8EE06B;
   --pink: #FF6B8A;
-  --link: #B8325A;         /* rose lisible sur fond clair (8:1) */
-  --shadow: 0 6px 18px rgba(46, 42, 71, .10);
+  --link: #FF8FA8;
+  --shadow: 0 6px 18px rgba(0, 0, 0, .35);
   --radius: 20px;
   --night: #000000;        /* bandeau du logo */
   --checker-a: #2E6B2A;    /* damier du jeu */
   --checker-b: #357A30;
-  color-scheme: light dark;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0E1022;
-    --surface: #1B1F45;
-    --ink: #F2F4FF;
-    --muted: #B8BCD6;
-    --line: #2B3070;
-    --green-text: #8EE06B;
-    --link: #FF8FA8;
-    --shadow: 0 6px 18px rgba(0, 0, 0, .35);
-  }
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -305,11 +294,8 @@ footer a:hover { color: var(--ink); }
    Logo vectoriel (le M au petit chat), chats illustrés, pages Cause,
    Contact et serpent de la page Snek.
    ===================================================================== */
-:root { --cat: #15122A; --cat-eye: #F2D54B; --cat-pupil: #0B0B14; --yarn: #FF6B8A; --yarn-dark: #C93F62; --whisker: rgba(21, 18, 42, .45); }
-@media (prefers-color-scheme: dark) {
-  :root { --cat: #05040C; --whisker: rgba(255, 255, 255, .38); }
-  .cat-svg { filter: drop-shadow(0 0 1px rgba(255, 255, 255, .55)) drop-shadow(0 0 10px rgba(150, 130, 255, .25)); }
-}
+:root { --cat: #05040C; --cat-eye: #F2D54B; --cat-pupil: #0B0B14; --yarn: #FF6B8A; --yarn-dark: #C93F62; --whisker: rgba(255, 255, 255, .38); }
+.cat-svg { filter: drop-shadow(0 0 1px rgba(255, 255, 255, .55)) drop-shadow(0 0 10px rgba(150, 130, 255, .25)); }
 
 /* Logo */
 .logo-mark { width: 40px; height: 36px; flex: none; }
@@ -354,7 +340,7 @@ footer a:hover { color: var(--ink); }
 .page-hero .mega { font-size: clamp(54px, 11vw, 132px); }
 .page-hero .sub { display: inline-block; }
 .story-list { display: grid; gap: 112px; max-width: 760px; margin: 0 auto; padding: 96px 0 40px; }
-.tale { position: relative; background: var(--surface); border-radius: var(--radius); padding: 30px 30px 26px; box-shadow: var(--shadow); }
+.tale { color: var(--ink); position: relative; background: var(--surface); border-radius: var(--radius); padding: 30px 30px 26px; box-shadow: var(--shadow); }
 .tale h2 { font-size: clamp(24px, 3.4vw, 30px); margin-bottom: 12px; }
 .tale p:last-child, .tale ul:last-child { margin-bottom: 0; }
 .tale ul { padding-left: 20px; margin: 0; }

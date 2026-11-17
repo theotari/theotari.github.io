@@ -3,24 +3,17 @@
 @font-face { font-family: "Nunito"; src: url("fonts/Nunito-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
 
 :root {
-  --cream: #FFF6E5;
-  --card: #FFFFFF;
-  --ink: #2E2A47;
-  --muted: #5E5A78;
+  /* Même thème sombre que le reste du site. */
+  --cream: #0E1022;
+  --card: #1B1F45;
+  --ink: #F2F4FF;
+  --muted: #B8BCD6;
   --green: #7BD957;
   --green-dark: #4E9E3A;
   --pink: #FF6B8A;
   --pink-dark: #D94468;
-  --line: #EDE3CF;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --cream: #0E1022;
-    --card: #1B1F45;
-    --ink: #F2F4FF;
-    --muted: #B8BCD6;
-    --line: #2B3070;
-  }
+  --line: #2B3070;
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -47,8 +40,8 @@ h1, h2, h3 { font-family: "Fredoka", sans-serif; font-weight: 700; line-height: 
 h1 { font-size: 30px; margin: 28px 0 8px; }
 h2 { font-size: 23px; margin: 30px 0 8px; }
 h3 { font-size: 19px; margin: 22px 0 6px; }
-a { color: var(--pink-dark); }
-@media (prefers-color-scheme: dark) { a { color: var(--pink); } nav.lang a { color: var(--green); } }
+a { color: var(--pink); }
+nav.lang a { color: var(--green); }
 .card {
   background: var(--card);
   border-radius: 20px;
