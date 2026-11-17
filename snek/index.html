@@ -13,17 +13,18 @@
 <link rel="icon" href="../assets/favicon.png">
 <link rel="preload" href="../assets/fonts/Fredoka-Bold.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/trail.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main"><span lang="fr">Aller au contenu</span><span lang="en">Skip to content</span></a>
 
 <header class="topbar over">
   <div class="wrap">
-    <a class="logo" href="../"><img src="../assets/minougame-logo.png" width="36" height="36" alt="">minougame</a>
+    <a class="logo" href="../"><svg class="logo-mark" viewBox="240 265 520 470" aria-hidden="true"><path class="lm" d="M250 275 L359 275 L500 506 L642 275 L750 275 L750 725 L649 725 L649 429 L524 629 L476 629 L351 429 L351 630 C333 624 311 628 293 638 L258 600 C255 597 252 597 250 599 Z"/><path class="lm" d="M250 725 L250 620 C250 612 252 609 255 611 L293 652 C314 644 336 642 357 646 L389 614 C394 610 397 613 398 621 L398 725 Z"/><circle class="le" cx="296" cy="686" r="16.5"/><circle class="lh" cx="292" cy="682" r="5"/><circle class="le" cx="355" cy="686" r="16.5"/><circle class="lh" cx="351" cy="682" r="5"/></svg>minougame</a>
     <nav class="topnav" aria-label="Menu">
       <a href="../#jeux"><span lang="fr">Jeux</span><span lang="en">Games</span></a>
-      <a href="../#cause"><span lang="fr">La cause</span><span lang="en">Our cause</span></a>
-      <a href="../#contact">Contact</a>
+      <a href="../cause/"><span lang="fr">La cause</span><span lang="en">Our cause</span></a>
+      <a href="../contact/">Contact</a>
     </nav>
     <button class="langbtn" type="button"><span lang="fr">English</span><span lang="en">Français</span></button>
   </div>
@@ -101,56 +102,75 @@
     </div>
   </section>
 
-  <section>
+  <section class="trail" id="contenu">
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow" lang="fr">Contenu</span><span class="eyebrow" lang="en">What’s inside</span>
         <h2 lang="fr">Ce qui t’attend</h2>
         <h2 lang="en">What awaits you</h2>
       </div>
-      <ul class="features">
-        <li>
+      <div class="trail-body">
+        <svg class="trail-svg" aria-hidden="true">
+          <path class="trail-track"/>
+          <path class="snake-outline"/><path class="snake-body"/>
+          <g class="snake-head">
+            <circle class="hd" r="13"/>
+            <circle class="ew" cx="4" cy="-6" r="4.6"/><circle class="ew" cx="4" cy="6" r="4.6"/>
+            <circle class="ep" cx="5.6" cy="-6" r="2.3"/><circle class="ep" cx="5.6" cy="6" r="2.3"/>
+            <path class="tongue" d="M13 0 h7 l3 -3 M20 0 l3 3"/>
+            <path class="dizzy" d="M1.5 -9.5 l5.5 5.5 M7 -9.5 l-5.5 5.5 M1.5 2.5 l5.5 5.5 M7 2.5 l-5.5 5.5"/>
+          </g>
+          <g class="stars"><g>
+            <path d="M0 -14 l2.4 5 5.4 .6 -4 3.7 1.1 5.4 -4.9 -2.7 -4.9 2.7 1.1 -5.4 -4 -3.7 5.4 -.6z" transform="translate(-22 0) scale(1)"/>
+            <path d="M0 -14 l2.4 5 5.4 .6 -4 3.7 1.1 5.4 -4.9 -2.7 -4.9 2.7 1.1 -5.4 -4 -3.7 5.4 -.6z" transform="translate(22 2) scale(.9)"/>
+            <path d="M0 -14 l2.4 5 5.4 .6 -4 3.7 1.1 5.4 -4.9 -2.7 -4.9 2.7 1.1 -5.4 -4 -3.7 5.4 -.6z" transform="translate(0 -16) scale(.75)"/>
+          </g></g>
+        </svg>
+        <ol class="steps">
+          <li class="step"><div class="card">
           <div class="feat-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z"/></svg></div>
           <h3 lang="fr">Des niveaux à l’infini</h3><h3 lang="en">Endless levels</h3>
           <p lang="fr">Mange des fruits pour remplir la barre. Chaque niveau est généré : obstacles, glace qui fait glisser, zones lentes, blocs qui bougent et portails.</p>
           <p lang="en">Eat fruit to fill the bar. Every level is generated: obstacles, slippery ice, slow zones, moving blocks and portals.</p>
-        </li>
-        <li>
+          </div><div class="dot" aria-hidden="true"><svg viewBox="0 0 34 34"><circle cx="17" cy="20" r="11" fill="#E53950"/><path d="M17 9 q2 -5 6 -6" stroke="#5B3A1E" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="22" cy="7" rx="4" ry="2" fill="#5FBF3F"/><circle cx="13" cy="16" r="2.5" fill="#fff" opacity=".5"/></svg></div></li>
+          <li class="step"><div class="card">
           <div class="feat-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
           <h3 lang="fr">3 cœurs pour aller loin</h3><h3 lang="en">3 hearts to go far</h3>
           <p lang="fr">Un choc ne met pas fin à la partie : tu perds un cœur et tu repars. Plus de cœurs ? Tu peux revivre.</p>
           <p lang="en">A crash doesn’t end your run: you lose a heart and keep going. Out of hearts? You can revive.</p>
-        </li>
-        <li>
+          </div><div class="dot" aria-hidden="true"><svg viewBox="0 0 34 34"><path d="M11 20 Q14 9 20 5 M23 21 Q22 11 20 5" stroke="#4E9E3A" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="11" cy="24" r="6.5" fill="#D62C4A"/><circle cx="23" cy="26" r="6.5" fill="#E53950"/></svg></div></li>
+          <li class="step"><div class="card">
           <div class="feat-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg></div>
           <h3 lang="fr">Pièces et améliorations</h3><h3 lang="en">Coins and upgrades</h3>
           <p lang="fr">Améliore tes cœurs, ton aimant à pièces, ton bouclier… et choisis un boost avant chaque partie.</p>
           <p lang="en">Upgrade your hearts, coin magnet, shield… and pick a boost before each game.</p>
-        </li>
-        <li>
+          </div><div class="dot" aria-hidden="true"><svg viewBox="0 0 34 34"><g fill="#8B4FC9"><circle cx="12" cy="12" r="5"/><circle cx="22" cy="12" r="5"/><circle cx="17" cy="19" r="5"/><circle cx="9" cy="19" r="4.5"/><circle cx="25" cy="19" r="4.5"/><circle cx="13" cy="26" r="4.5"/><circle cx="21" cy="26" r="4.5"/></g><path d="M17 7 q2 -4 6 -4" stroke="#4E9E3A" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div></li>
+          <li class="step"><div class="card">
           <div class="feat-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg></div>
           <h3 lang="fr">Habille ton Snek</h3><h3 lang="en">Dress up your Snek</h3>
           <p lang="fr">50 skins, dont des légendaires animés, et plus de 80 chapeaux, écharpes, pulls et accessoires à trouver dans les coffres.</p>
           <p lang="en">50 skins, including animated legendaries, and 80+ hats, scarves, sweaters and accessories to find in chests.</p>
-        </li>
-        <li>
+          </div><div class="dot" aria-hidden="true"><svg viewBox="0 0 34 34"><circle cx="17" cy="19" r="11" fill="#F59E2A"/><ellipse cx="21" cy="7" rx="5" ry="2.4" fill="#5FBF3F" transform="rotate(-20 21 7)"/><circle cx="13" cy="15" r="2.5" fill="#fff" opacity=".45"/></svg></div></li>
+          <li class="step"><div class="card">
           <div class="feat-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></div>
           <h3 lang="fr">11 maps</h3><h3 lang="en">11 maps</h3>
           <p lang="fr">Prairie, forêt, plage, banquise, fonds marins, ville néon, volcan, espace… chacune avec son ambiance et ses pièges.</p>
           <p lang="en">Meadow, forest, beach, ice floe, deep sea, neon city, volcano, space… each with its own mood and traps.</p>
-        </li>
-        <li>
+          </div><div class="dot" aria-hidden="true"><svg viewBox="0 0 34 34"><path d="M17 31 C8 25 6 15 10 11 C13 9 21 9 24 11 C28 15 26 25 17 31Z" fill="#E8394F"/><path d="M10 10 l7 -5 l7 5 l-7 2z" fill="#5FBF3F"/><g fill="#FFE08A"><circle cx="13" cy="16" r="1"/><circle cx="20" cy="16" r="1"/><circle cx="16" cy="21" r="1"/><circle cx="21" cy="23" r="1"/><circle cx="13" cy="23" r="1"/></g></svg></div></li>
+          <li class="step"><div class="card">
           <div class="feat-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h.01"/><path d="M8.5 16.43a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 4.17-2.65"/><path d="M10.66 5c4.01-.36 8.14.9 11.34 3.76"/><path d="M16.85 11.25a10 10 0 0 1 2.22 1.68"/><path d="M5 13a10 10 0 0 1 5.24-2.76"/><path d="m2 2 20 20"/></svg></div>
           <h3 lang="fr">Hors ligne, à une main</h3><h3 lang="en">Offline, one-handed</h3>
           <p lang="fr">Pas besoin de connexion. Parties courtes ou longues : à toi de voir.</p>
           <p lang="en">No connection needed. Short or long sessions: your call.</p>
-        </li>
-      </ul>
+          </div><div class="dot" aria-hidden="true"><svg viewBox="0 0 34 34"><circle cx="17" cy="20" r="11" fill="#F2C230"/><path d="M17 9 q2 -5 6 -6" stroke="#5B3A1E" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M12 14 l1.5 3 3 .5 -2.2 2 .6 3 -2.9 -1.5 -2.9 1.5 .6 -3 -2.2 -2 3 -.5z" fill="#fff" opacity=".7"/></svg></div></li>
+        </ol>
+      </div>
     </div>
   </section>
 
-  <section class="fair">
+  <section class="fair wall-sec">
     <div class="wrap">
+      <div class="fair-wall">
       <div class="section-head">
         <span class="eyebrow" lang="fr">Jeu honnête</span><span class="eyebrow" lang="en">Fair play</span>
         <h2 lang="fr">Gratuit, et sans piège</h2>
@@ -170,6 +190,7 @@
           <span lang="fr"><strong>Ta progression reste sur ton téléphone.</strong> Pas de compte, et minougame ne collecte aucune donnée personnelle. <a href="../privacy.html">Politique de confidentialité</a></span>
           <span lang="en"><strong>Your progress stays on your phone.</strong> No account, and minougame collects no personal data. <a href="../privacy.html#en">Privacy policy</a></span></li>
       </ul>
+      </div>
     </div>
   </section>
 
@@ -182,7 +203,7 @@
           <p class="muted" lang="fr">Écris-nous, on lit tout.</p>
           <p class="muted" lang="en">Write to us, we read everything.</p>
         </div>
-        <a class="btn btn-primary" href="mailto:minougame.dev@gmail.com?subject=Snek">
+        <a class="btn btn-primary" href="../contact/?raison=bug">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           <span lang="fr">Nous écrire</span><span lang="en">Email us</span>
         </a>
@@ -193,7 +214,7 @@
 
 <footer>
   <div class="wrap">
-    <span>© 2026 minougame</span>
+    <span>© 2026 minougame · <a href="../cause/"><span lang="fr">La cause</span><span lang="en">Our cause</span></a> · <a href="../contact/">Contact</a></span>
     <span>
       <a href="../privacy.html" lang="fr">Confidentialité de Snek</a><a href="../privacy.html#en" lang="en">Snek privacy policy</a>
       · <span lang="fr">Polices Fredoka et Nunito (SIL OFL 1.1), icônes Lucide (ISC)</span><span lang="en">Fredoka and Nunito fonts (SIL OFL 1.1), Lucide icons (ISC)</span>
