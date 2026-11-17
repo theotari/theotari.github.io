@@ -305,9 +305,9 @@ footer a:hover { color: var(--ink); }
    Logo vectoriel (le M au petit chat), chats illustrés, pages Cause,
    Contact et serpent de la page Snek.
    ===================================================================== */
-:root { --cat: #15122A; --cat-eye: #F2D54B; --cat-pupil: #0B0B14; --yarn: #FF6B8A; --yarn-dark: #C93F62; }
+:root { --cat: #15122A; --cat-eye: #F2D54B; --cat-pupil: #0B0B14; --yarn: #FF6B8A; --yarn-dark: #C93F62; --whisker: rgba(21, 18, 42, .45); }
 @media (prefers-color-scheme: dark) {
-  :root { --cat: #05040C; }
+  :root { --cat: #05040C; --whisker: rgba(255, 255, 255, .38); }
   .cat-svg { filter: drop-shadow(0 0 1px rgba(255, 255, 255, .55)) drop-shadow(0 0 10px rgba(150, 130, 255, .25)); }
 }
 
@@ -328,6 +328,13 @@ footer a:hover { color: var(--ink); }
 .cat-svg .eye { fill: var(--cat-eye); }
 .cat-svg .pupil { fill: var(--cat-pupil); }
 .cat-svg .lid { fill: none; stroke: var(--cat-eye); stroke-width: 2.5; stroke-linecap: round; }
+/* Visage commun à tous les chats (style du chat « bug ») */
+.cat-svg .sclera { fill: #F6F2E8; }
+.cat-svg .nose { fill: #E59AA8; }
+.cat-svg .mouth { fill: none; stroke: rgba(255, 255, 255, .42); stroke-linecap: round; }
+.cat-svg .wh { fill: none; stroke: var(--whisker); stroke-linecap: round; }
+.cat-svg .lidw { fill: none; stroke: #F6F2E8; stroke-linecap: round; }
+.scene, .cause-end { --whisker: rgba(255, 255, 255, .42); }
 .cat-svg .zz { font: 700 16px "Fredoka", sans-serif; fill: var(--muted); }
 .tail { transform-box: fill-box; animation: sway 3.4s ease-in-out infinite; }
 .tail.from-tr { transform-origin: 100% 0%; }
