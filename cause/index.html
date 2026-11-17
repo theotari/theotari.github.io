@@ -48,6 +48,8 @@
           <stop offset="0" stop-color="#8E9BF0"/><stop offset=".35" stop-color="#4447A8"/><stop offset="1" stop-color="#1A1856"/>
         </linearGradient>
         <clipPath id="flow"><rect class="flow-rect" x="0" y="286" width="1440" height="314"/></clipPath>
+        <!-- le lac s'étale en cercle depuis l'embouchure du ruisseau -->
+        <clipPath id="spread"><circle class="spread" cx="724" cy="512" r="900"/></clipPath>
       </defs>
       <path fill="var(--hill-mid)" d="M0 300 C180 250 330 240 470 270 C560 290 630 298 700 292 C780 286 880 236 1020 248 C1180 262 1320 296 1440 280 V600 H0 Z"/>
       <g clip-path="url(#flow)">
@@ -69,7 +71,7 @@
           <path d="M36 44 C50 44 52 30 46 24" fill="none" stroke="var(--hill-front)" stroke-width="5" stroke-linecap="round"/>
         </g>
       </g>
-      <g class="lake-g">
+      <g class="lake-g" clip-path="url(#spread)">
         <path fill="url(#lakewater)" d="M0 520 C300 506 560 498 720 498 C900 498 1160 506 1440 520 V600 H0 Z"/>
         <g class="glints" stroke="rgb(var(--glow))" stroke-linecap="round">
           <path d="M690 516 h60" stroke-width="3"/><path d="M670 534 h100" stroke-width="2.5" opacity=".8"/>
