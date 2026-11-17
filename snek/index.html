@@ -17,7 +17,7 @@
 <body>
 <a class="skip" href="#main"><span lang="fr">Aller au contenu</span><span lang="en">Skip to content</span></a>
 
-<header class="topbar">
+<header class="topbar over">
   <div class="wrap">
     <a class="logo" href="../"><img src="../assets/minougame-logo.png" width="36" height="36" alt="">minougame</a>
     <nav class="topnav" aria-label="Menu">
@@ -30,7 +30,18 @@
 </header>
 
 <main id="main">
-  <section class="game-hero">
+  <section class="game-hero scene">
+    <div class="sky"></div>
+    <div class="stars"></div>
+    <div class="sun" aria-hidden="true"></div>
+    <svg class="hills hills-back" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M0 250 C140 190 260 200 380 230 C520 265 620 150 780 160 C930 170 1020 240 1160 210 C1290 182 1380 200 1440 215 V400 H0Z"/></svg>
+    <svg class="hills hills-mid" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M0 280 C200 240 320 250 480 280 C640 310 760 230 940 240 C1100 250 1240 300 1440 270 V400 H0Z"/></svg>
+    <svg class="hills hills-front" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <path d="M0 330 C220 300 420 290 620 305 C780 318 900 285 1060 282 C1220 280 1340 310 1440 300 V400 H0Z"/>
+      <!-- Snek qui ondule sur la crête -->
+      <path d="M940 286 c14 -18 28 -18 42 0 s28 18 42 0 s28 -18 42 0" fill="none" stroke-width="12" stroke-linecap="round"/>
+      <circle cx="1068" cy="279" r="11"/>
+    </svg>
     <div class="wrap">
       <div>
         <a class="back" href="../#jeux">
@@ -39,7 +50,7 @@
         </a>
         <div class="title-row">
           <img src="../assets/snek/icon-192.png" width="88" height="88" alt="">
-          <h1>Snek</h1>
+          <h1 class="mega">Snek</h1>
         </div>
         <p class="lead" lang="fr">Le Snake que tu connais… en beaucoup plus vivant !</p>
         <p class="lead" lang="en">The Snake you know… brought to life!</p>

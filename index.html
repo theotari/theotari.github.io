@@ -17,7 +17,7 @@
 <body>
 <a class="skip" href="#main"><span lang="fr">Aller au contenu</span><span lang="en">Skip to content</span></a>
 
-<header class="topbar">
+<header class="topbar over">
   <div class="wrap">
     <a class="logo" href="./"><img src="assets/minougame-logo.png" width="36" height="36" alt="">minougame</a>
     <nav class="topnav" aria-label="Menu">
@@ -30,24 +30,58 @@
 </header>
 
 <main id="main">
-  <section class="hero">
-    <div class="wrap">
-      <div>
-        <h1 lang="fr">Des petits jeux mobiles, pour une <span class="accent">bonne cause</span>.</h1>
-        <h1 lang="en">Little mobile games, for a <span class="accent">better cause</span>.</h1>
-        <p class="lead" lang="fr">minougame est un tout petit studio fait avec beaucoup d’amour pour les animaux. Nos jeux sont gratuits, et leurs publicités aident à nourrir des animaux abandonnés.</p>
-        <p class="lead" lang="en">minougame is a tiny studio made with a lot of love for animals. Our games are free, and their ads help feed abandoned animals.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="#jeux"><span lang="fr">Voir nos jeux</span><span lang="en">See our games</span></a>
-          <a class="btn btn-ghost" href="#cause"><span lang="fr">Notre cause</span><span lang="en">Our cause</span></a>
+  <div class="story">
+    <section class="scene stage" aria-label="minougame">
+      <div class="sky"></div>
+      <div class="stars"></div>
+      <div class="sun" aria-hidden="true"></div>
+      <svg class="hills hills-back" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M0 240 L90 180 L170 210 L280 110 L360 170 L430 140 L540 220 L640 150 L720 90 L800 160 L900 120 L1010 200 L1120 130 L1220 180 L1320 120 L1440 190 V400 H0Z"/></svg>
+      <svg class="hills hills-mid" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M0 250 C180 200 300 190 440 230 C580 270 660 170 820 190 C980 210 1080 260 1240 220 C1340 195 1400 210 1440 220 V400 H0Z"/></svg>
+      <svg class="hills hills-front" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <path d="M0 330 C200 280 380 270 560 290 C680 303 740 262 860 255 C1000 248 1180 300 1440 280 V400 H0Z"/>
+        <!-- un chat assis sur la crête, tourné vers la lumière -->
+        <g transform="translate(770 194) scale(1.3)">
+          <ellipse cx="22" cy="36" rx="15" ry="13"/><circle cx="14" cy="15" r="10"/>
+          <path d="M6 9 L6 -3 L13 6Z"/><path d="M15 6 L22 -3 L22 9Z"/>
+          <path d="M36 44 C50 44 52 30 46 24" fill="none" stroke-width="5" stroke-linecap="round"/>
+        </g>
+        <!-- et un petit serpent à côté -->
+        <path d="M872 254 c8 -10 16 -10 24 0 s16 10 24 0" fill="none" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="924" cy="250" r="6.5"/>
+      </svg>
+
+      <div class="chapters">
+        <div class="chapter is-active">
+          <p class="kicker"><span lang="fr">Petit studio de jeux mobiles</span><span lang="en">Tiny mobile game studio</span></p>
+          <h1 class="mega">minougame</h1>
+          <p class="sub" lang="fr">Des jeux gratuits, faits avec beaucoup d’amour pour les animaux.</p>
+          <p class="sub" lang="en">Free games, made with a lot of love for animals.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#jeux"><span lang="fr">Voir nos jeux</span><span lang="en">See our games</span></a>
+            <a class="btn btn-ghost" href="#cause"><span lang="fr">Notre cause</span><span lang="en">Our cause</span></a>
+          </div>
+        </div>
+        <div class="chapter">
+          <p class="kicker">1 / 2</p>
+          <h2 class="mega"><span lang="fr">Jouer</span><span lang="en">Play</span></h2>
+          <p class="sub" lang="fr">À une main, hors ligne, sans aucun achat en argent réel.</p>
+          <p class="sub" lang="en">One-handed, offline, with no real-money purchases.</p>
+        </div>
+        <div class="chapter">
+          <p class="kicker">2 / 2</p>
+          <h2 class="mega"><span lang="fr">Aider</span><span lang="en">Help</span></h2>
+          <p class="sub" lang="fr">Les publicités de nos jeux aident à nourrir des animaux abandonnés.</p>
+          <p class="sub" lang="en">The ads in our games help feed abandoned animals.</p>
         </div>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <img class="logo-big" src="assets/minougame-logo.png" width="512" height="512" alt="">
-        <img class="sticker" src="assets/snek/icon-192.png" width="192" height="192" alt="">
-      </div>
-    </div>
-  </section>
+
+      <a class="scroll-cue" href="#jeux">
+        <span lang="fr">Faire défiler</span><span lang="en">Scroll</span>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </a>
+      <div class="flood"></div>
+    </section>
+  </div>
 
   <section id="jeux">
     <div class="wrap">

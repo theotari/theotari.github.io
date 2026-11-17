@@ -102,23 +102,89 @@ section { padding: 64px 0; }
 .btn-soon:active { transform: none; }
 .actions { display: flex; flex-wrap: wrap; gap: 14px; }
 
-/* ---------- Accueil : héros ---------- */
-.hero { background: var(--night); color: #fff; padding: 56px 0 72px; }
-.hero .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; }
-.hero h1 { font-size: clamp(38px, 6.4vw, 64px); margin-bottom: 16px; }
-.hero h1 .accent { color: var(--brand); }
-.hero .lead { font-size: 20px; color: rgba(255, 255, 255, .82); max-width: 34ch; margin-bottom: 28px; }
-.hero-art { justify-self: center; position: relative; width: min(340px, 80vw); }
-.hero-art .logo-big { width: 100%; border-radius: 32px; box-shadow: 0 0 0 2px rgba(255, 255, 255, .12); }
-.hero-art .sticker {
-  position: absolute; right: -12px; bottom: -18px; width: 38%;
-  border-radius: 24%; box-shadow: 0 10px 24px rgba(0, 0, 0, .45); transform: rotate(8deg);
+/* ---------- Paysage de nuit (héros des pages) ----------
+   Ciel, lumière qui se lève derrière les crêtes, 3 plans de collines.
+   Les couleurs changent par page via les variables --sky-*, --hill-*, --glow. */
+.topbar.over { position: absolute; inset: 0 0 auto; z-index: 20; background: transparent; }
+.scene {
+  --sky-top: #0A0A26; --sky-mid: #2B1D5E; --sky-low: #8D74C9;
+  --hill-back: #3E2C6E; --hill-mid: #22174A; --hill-front: #0C0920;
+  --glow: 214, 226, 255;
+  --title: #FF5468; --title-glow: 255, 84, 104;
+  --p: 0;
+  position: relative; overflow: hidden; color: #fff; isolation: isolate;
 }
-@media (max-width: 760px) {
-  .hero { padding: 40px 0 56px; }
-  .hero .wrap { grid-template-columns: 1fr; gap: 36px; }
-  .hero-art { width: min(240px, 66vw); order: -1; }
+.sky { position: absolute; inset: 0; z-index: -3; background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 48%, var(--sky-low) 100%); }
+.stars { position: absolute; inset: 0 0 40% 0; z-index: -3; opacity: calc(.8 - var(--p) * .8);
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 18%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 28% 42%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 46% 12%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 63% 30%, #fff 50%, transparent 51%),
+    radial-gradient(2px 2px at 78% 16%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 88% 44%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 6% 52%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 36% 66%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 94% 8%, #fff 50%, transparent 51%);
 }
+.sun {
+  position: absolute; z-index: -2; left: 50%; bottom: 26%;
+  width: 46vmin; height: 46vmin; border-radius: 50%;
+  background: radial-gradient(circle,
+    #fff 0 22%, rgba(var(--glow), .95) 30%, rgba(var(--glow), .45) 45%, rgba(var(--glow), .12) 60%, transparent 70%);
+  transform: translate(-50%, calc((1 - var(--p)) * 22%)) scale(calc(1 + var(--p) * 2.6));
+  will-change: transform;
+}
+.hills { position: absolute; left: 0; bottom: 0; width: 100%; z-index: -1; will-change: transform; }
+.hills-back { height: 52%; fill: var(--hill-back); transform: translateY(calc(var(--p) * 6%)); }
+.hills-mid { height: 40%; fill: var(--hill-mid); transform: translateY(calc(var(--p) * 12%)); }
+.hills-front { height: 32%; fill: var(--hill-front); stroke: var(--hill-front); transform: translateY(calc(var(--p) * 22%)); }
+.mega {
+  font: 700 clamp(52px, 14vw, 168px)/.92 "Fredoka", sans-serif; letter-spacing: .01em; text-transform: uppercase;
+  color: var(--title);
+  text-shadow: 0 0 18px rgba(var(--title-glow), .55), 0 0 60px rgba(var(--title-glow), .35);
+}
+.kicker {
+  display: inline-block; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; font-size: 14px; color: #fff;
+  margin: 0 auto 14px; padding: 4px 14px; border-radius: 999px; background: rgba(10, 8, 30, .45);
+}
+/* Le texte passe devant la lumière : petit fond sombre translucide pour rester lisible. */
+.sub {
+  font-size: clamp(18px, 2.2vw, 22px); color: #fff; max-width: 36ch; margin: 18px auto 0;
+  padding: 8px 18px; border-radius: 16px;
+  background: rgba(10, 8, 30, .55); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.scene .btn-ghost { background: rgba(10, 8, 30, .5); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.scene .btn-ghost:hover { background: rgba(10, 8, 30, .7); }
+
+/* ---------- Accueil : récit au défilement ---------- */
+/* Sans JS ou en « mouvement réduit » : les 3 chapitres sont empilés, tous lisibles. */
+.stage { min-height: 100vh; padding: 120px 16px 38vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.chapters { display: grid; gap: 64px; text-align: center; width: 100%; }
+.chapter .actions { justify-content: center; margin-top: 28px; }
+.flood { position: absolute; inset: 0; z-index: 5; background: var(--bg); opacity: 0; pointer-events: none; }
+.scroll-cue { display: none; }
+
+/* Avec JS et mouvement autorisé (classe posée par lang.js) : scène collée, chapitres qui se relaient. */
+html.motion .story { height: 340vh; }
+html.motion .stage { position: sticky; top: 0; height: 100vh; height: 100svh; min-height: 0; padding: 0 16px; }
+html.motion .chapters { display: block; position: relative; height: 100%; }
+html.motion .chapter {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding-bottom: 18vh;
+  opacity: 0; transform: translateY(24px) scale(.97); visibility: hidden;
+  transition: opacity .5s ease-out, transform .5s ease-out, visibility 0s .5s;
+}
+html.motion .chapter.is-active { opacity: 1; transform: none; visibility: visible; transition: opacity .5s ease-out, transform .5s ease-out, visibility 0s; }
+html.motion .flood { opacity: var(--flood, 0); }
+html.motion .scroll-cue {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 4;
+  color: rgba(255, 255, 255, .85); font-weight: 700; font-size: 14px; text-decoration: none; min-height: 44px;
+  opacity: calc(1 - var(--p) * 8);
+}
+html.motion .scroll-cue .icon { animation: bob 1.6s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(6px); } }
 
 /* ---------- Accueil : cartes de jeux ---------- */
 .games { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; list-style: none; padding: 0; margin: 0; }
@@ -171,25 +237,31 @@ footer a { color: var(--muted); }
 footer a:hover { color: var(--ink); }
 
 /* ---------- Page d'un jeu ---------- */
-.game-hero {
-  color: #fff; padding: 48px 0 64px;
-  background-color: var(--checker-a);
-  background-image: repeating-conic-gradient(var(--checker-b) 0 25%, transparent 0 50%);
-  background-size: 64px 64px;
+.game-hero { padding: 104px 0 140px; }
+.game-hero.scene {
+  /* Nuit sur la Prairie : mêmes plans que l'accueil, en vert. */
+  --sky-top: #04121A; --sky-mid: #0F3B33; --sky-low: #5FA36A;
+  --hill-back: #2C6B3A; --hill-mid: #1A4A28; --hill-front: #0A2414;
+  --glow: 226, 255, 200;
+  --title: #8EEA63; --title-glow: 123, 217, 87;
+  --p: .12;
 }
+.game-hero .sun { left: 54%; bottom: 26%; }
 .game-hero .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+.game-hero .mega { font-size: clamp(64px, 11vw, 132px); }
 .back { display: inline-flex; align-items: center; gap: 6px; color: #fff; font-weight: 700; text-decoration: none; margin-bottom: 20px; min-height: 44px; }
 .back:hover { text-decoration: underline; }
 .title-row { display: flex; align-items: center; gap: 18px; margin-bottom: 16px; }
 .title-row img { width: 88px; height: 88px; border-radius: 22px; box-shadow: 0 6px 16px rgba(0, 0, 0, .3); }
-.game-hero h1 { font-size: clamp(48px, 8vw, 76px); text-shadow: 0 3px 0 rgba(0, 0, 0, .18); }
-.game-hero .lead { font-size: 20px; max-width: 32ch; margin-bottom: 20px; }
+.game-hero .lead { font-size: 20px; max-width: 32ch; margin-bottom: 20px; text-shadow: 0 2px 12px rgba(0, 0, 0, .4); }
 .hero-chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0 0 28px; }
-.hero-chips li { font-size: 15px; font-weight: 700; padding: 6px 14px; border-radius: 999px; background: rgba(0, 0, 0, .28); }
+.hero-chips li { font-size: 15px; font-weight: 700; padding: 6px 14px; border-radius: 999px; background: rgba(4, 18, 12, .55); }
 .phone { justify-self: center; width: min(300px, 72vw); border-radius: 28px; box-shadow: 0 18px 40px rgba(0, 0, 0, .4); }
 .note { font-size: 15px; color: rgba(255, 255, 255, .85); margin-top: 12px; }
 @media (max-width: 760px) {
+  .game-hero { padding: 96px 0 120px; }
   .game-hero .wrap { grid-template-columns: 1fr; }
+  .game-hero .sun { left: 88%; bottom: 4%; }
   .phone { width: min(240px, 64vw); }
 }
 

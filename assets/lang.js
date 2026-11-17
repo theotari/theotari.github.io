@@ -22,8 +22,35 @@
 
   apply(pick());
 
+  // Récit au défilement de l'accueil : seulement si le mouvement est autorisé.
+  var motion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+  if (motion) root.classList.add('motion');
+
+  function story() {
+    var el = document.querySelector('.story');
+    if (!el || !motion) return;
+    var scene = el.querySelector('.scene');
+    var chapters = el.querySelectorAll('.chapter');
+    var queued = false;
+    function update() {
+      queued = false;
+      var r = el.getBoundingClientRect();
+      var range = r.height - window.innerHeight;
+      var p = range > 0 ? Math.min(1, Math.max(0, -r.top / range)) : 0;
+      scene.style.setProperty('--p', p.toFixed(4));
+      scene.style.setProperty('--flood', Math.min(1, Math.max(0, (p - 0.82) / 0.16)).toFixed(3));
+      var i = p < 0.3 ? 0 : p < 0.6 ? 1 : 2;
+      for (var k = 0; k < chapters.length; k++) chapters[k].classList.toggle('is-active', k === i);
+    }
+    function onScroll() { if (!queued) { queued = true; requestAnimationFrame(update); } }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     titles.fr = titles.fr || document.title;
+    story();
     var btn = document.querySelector('.langbtn');
     if (!btn) return;
     btn.addEventListener('click', function () {
