@@ -7,6 +7,9 @@
 <script src="../assets/lang.js"></script>
 <meta name="description" content="Pourquoi minougame existe : des jeux gratuits dont les publicités aident à nourrir des animaux abandonnés.">
 <meta name="theme-color" content="#0A0A26">
+<meta property="og:title" content="La cause · minougame">
+<meta property="og:description" content="Des jeux gratuits dont les publicités aident à nourrir des animaux abandonnés.">
+<meta property="og:image" content="https://theotari.github.io/assets/snek/feature-graphic.jpg">
 <link rel="icon" href="../assets/favicon.png">
 <link rel="preload" href="../assets/fonts/Fredoka-Bold.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="../assets/site.css">
@@ -17,13 +20,13 @@
 
 <header class="topbar over">
   <div class="wrap">
-    <a class="logo" href="../"><svg class="logo-mark" viewBox="240 265 520 470" aria-hidden="true"><path class="lm" d="M250 275 L359 275 L500 506 L642 275 L750 275 L750 725 L649 725 L649 429 L524 629 L476 629 L351 429 L351 630 C333 624 311 628 293 638 L258 600 C255 597 252 597 250 599 Z"/><path class="lm" d="M250 725 L250 620 C250 612 252 609 255 611 L293 652 C314 644 336 642 357 646 L389 614 C394 610 397 613 398 621 L398 725 Z"/><circle class="le" cx="296" cy="686" r="16.5"/><circle class="lh" cx="292" cy="682" r="5"/><circle class="le" cx="355" cy="686" r="16.5"/><circle class="lh" cx="351" cy="682" r="5"/></svg>minougame</a>
+    <a class="logo" href="../"><svg class="logo-mark" viewBox="240 265 520 470" aria-hidden="true"><path class="lm" d="M250 275 L359 275 L500 506 L642 275 L750 275 L750 725 L649 725 L649 429 L524 629 L476 629 L351 429 L351 630 C333 624 311 628 293 638 L258 600 C255 597 252 597 250 599 Z"/><path class="lm" d="M250 725 L250 620 C250 612 252 609 255 611 L293 652 C314 644 336 642 357 646 L389 614 C394 610 397 613 398 621 L398 725 Z"/><circle class="le" cx="296" cy="686" r="16.5"/><circle class="lh" cx="292" cy="682" r="5"/><circle class="le" cx="355" cy="686" r="16.5"/><circle class="lh" cx="351" cy="682" r="5"/></svg><span class="logo-text">minougame</span></a>
     <nav class="topnav" aria-label="Menu">
       <a href="../#jeux"><span lang="fr">Jeux</span><span lang="en">Games</span></a>
       <a href="./" aria-current="page"><span lang="fr">La cause</span><span lang="en">Our cause</span></a>
       <a href="../contact/">Contact</a>
     </nav>
-    <button class="langbtn" type="button"><span lang="fr">English</span><span lang="en">Français</span></button>
+    <button class="langbtn" type="button"><span lang="fr"><span class="l-long">English</span><span class="l-short">EN</span></span><span lang="en"><span class="l-long">Français</span><span class="l-short">FR</span></span></button>
   </div>
 </header>
 
@@ -35,40 +38,46 @@
     <div class="stars"></div>
     <div class="sun" aria-hidden="true"></div>
     <svg class="hills hills-back" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M0 240 L90 180 L170 210 L280 110 L360 170 L430 140 L540 220 L640 150 L720 90 L800 160 L900 120 L1010 200 L1120 130 L1220 180 L1320 120 L1440 190 V400 H0Z"/></svg>
-    <svg class="hills hills-mid" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M0 250 C180 200 300 190 440 230 C580 270 660 170 820 190 C980 210 1080 260 1240 220 C1340 195 1400 210 1440 220 V400 H0Z"/></svg>
-    <svg class="hills hills-front" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-      <path d="M0 330 C200 280 380 270 560 290 C680 303 740 262 860 255 C1000 248 1180 300 1440 280 V400 H0Z"/>
-      <!-- une chatte et son chaton face à la lumière -->
-      <g transform="translate(672 212) scale(1.45)">
-        <ellipse cx="22" cy="36" rx="15" ry="13"/><circle cx="14" cy="15" r="10"/>
-        <path d="M6 9 L6 -3 L13 6Z"/><path d="M15 6 L22 -3 L22 9Z"/>
-        <path d="M36 44 C50 44 52 30 46 24" fill="none" stroke-width="5" stroke-linecap="round"/>
+    <!-- Premier plan : colline du milieu, ruisseau, collines avant, lac (un seul repère pour que tout s'aligne) -->
+    <svg class="hills fore" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#B9CCFF"/><stop offset=".45" stop-color="#6266D2"/><stop offset="1" stop-color="#25226A"/>
+        </linearGradient>
+        <linearGradient id="lakewater" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#8E9BF0"/><stop offset=".35" stop-color="#4447A8"/><stop offset="1" stop-color="#1A1856"/>
+        </linearGradient>
+        <clipPath id="flow"><rect class="flow-rect" x="0" y="286" width="1440" height="314"/></clipPath>
+      </defs>
+      <path fill="var(--hill-mid)" d="M0 300 C180 250 330 240 470 270 C560 290 630 298 700 292 C780 286 880 236 1020 248 C1180 262 1320 296 1440 280 V600 H0 Z"/>
+      <g clip-path="url(#flow)">
+        <path fill="url(#water)" d="M694 293 C684 312 680 330 702 352 C726 378 712 400 684 424 C654 452 664 482 648 514 L800 514 C792 484 802 452 770 426 C742 402 758 378 736 352 C714 326 716 310 708 293 Z"/>
+        <path class="glints" d="M714 322 v12 M718 372 v16 M708 420 v18 M722 470 v22" stroke="rgb(var(--glow))" stroke-width="2.5" stroke-linecap="round" opacity=".7"/>
       </g>
-      <g transform="translate(752 236) scale(.9)">
-        <ellipse cx="22" cy="36" rx="15" ry="13"/><circle cx="14" cy="15" r="10"/>
-        <path d="M6 9 L6 -3 L13 6Z"/><path d="M15 6 L22 -3 L22 9Z"/>
-        <path d="M36 44 C50 44 52 30 46 24" fill="none" stroke-width="5" stroke-linecap="round"/>
+      <g fill="var(--hill-front)">
+        <path d="M0 420 C140 386 300 384 440 404 C520 416 580 432 620 440 C650 446 660 476 668 520 L668 600 L0 600 Z"/>
+        <path d="M1440 600 L800 600 L808 520 C820 470 860 444 920 432 C1040 410 1240 404 1440 420 Z"/>
+        <!-- la chatte et son chaton, au bord du ruisseau, face à la lumière -->
+        <g transform="translate(520 365) scale(1.35)">
+          <ellipse cx="22" cy="36" rx="15" ry="13"/><circle cx="14" cy="15" r="10"/>
+          <path d="M6 9 L6 -3 L13 6Z"/><path d="M15 6 L22 -3 L22 9Z"/>
+          <path d="M36 44 C50 44 52 30 46 24" fill="none" stroke="var(--hill-front)" stroke-width="5" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(598 395) scale(.85)">
+          <ellipse cx="22" cy="36" rx="15" ry="13"/><circle cx="14" cy="15" r="10"/>
+          <path d="M6 9 L6 -3 L13 6Z"/><path d="M15 6 L22 -3 L22 9Z"/>
+          <path d="M36 44 C50 44 52 30 46 24" fill="none" stroke="var(--hill-front)" stroke-width="5" stroke-linecap="round"/>
+        </g>
+      </g>
+      <g class="lake-g">
+        <path fill="url(#lakewater)" d="M0 520 C300 506 560 498 720 498 C900 498 1160 506 1440 520 V600 H0 Z"/>
+        <g class="glints" stroke="rgb(var(--glow))" stroke-linecap="round">
+          <path d="M690 516 h60" stroke-width="3"/><path d="M670 534 h100" stroke-width="2.5" opacity=".8"/>
+          <path d="M700 552 h40" stroke-width="3"/><path d="M656 570 h128" stroke-width="2" opacity=".6"/>
+          <path d="M694 588 h52" stroke-width="2.5" opacity=".7"/>
+        </g>
       </g>
     </svg>
-      <svg class="lake" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-        <defs>
-          <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#A9C2FF"/><stop offset=".4" stop-color="#5A5FCB"/><stop offset="1" stop-color="#1A1856"/>
-          </linearGradient>
-          <clipPath id="flow"><rect class="flow-rect" x="0" y="0" width="1440" height="400"/></clipPath>
-        </defs>
-        <g clip-path="url(#flow)">
-          <path fill="#A9C2FF" opacity=".25" d="M486 6 C466 60 520 100 498 150 C476 200 450 240 458 304 L610 304 C598 240 574 200 590 150 C608 100 554 60 538 6 Z"/>
-          <path fill="url(#water)" d="M498 10 C480 60 532 100 510 150 C490 200 466 240 474 300 L594 300 C582 240 560 200 576 150 C594 100 542 60 526 10 Z"/>
-          <path fill="url(#water)" d="M0 318 C240 288 480 298 720 294 C960 290 1200 298 1440 316 V400 H0 Z"/>
-          <g class="glints" stroke="rgb(var(--glow))" stroke-linecap="round">
-            <path d="M690 318 h60" stroke-width="3"/><path d="M670 336 h100" stroke-width="2.5" opacity=".8"/>
-            <path d="M700 352 h40" stroke-width="3"/><path d="M656 368 h128" stroke-width="2" opacity=".6"/>
-            <path d="M694 384 h52" stroke-width="2.5" opacity=".7"/>
-            <path d="M506 60 v30 M512 130 v24 M506 200 v30" stroke-width="2" opacity=".5"/>
-          </g>
-        </g>
-      </svg>
 
       <div class="cintro chap is-active">
         <p class="kicker">minougame</p>

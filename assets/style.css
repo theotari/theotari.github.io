@@ -68,3 +68,18 @@ th { font-weight: 700; }
 footer { text-align: center; color: var(--muted); font-size: 14px; padding: 24px 16px 40px; }
 hr.sep { border: 0; border-top: 2px dashed var(--line); margin: 48px 0 8px; }
 @media (max-width: 480px) { .game { flex-direction: column; text-align: center; } }
+
+/* Bandeau de nuit, comme le reste du site */
+.nightbar {
+  display: flex; align-items: center; gap: 16px; min-height: 64px;
+  padding: 10px max(16px, calc((100% - 1080px) / 2));
+  background: linear-gradient(180deg, #0A0A26 0%, #2B1D5E 100%); color: #fff;
+}
+.brand-link { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font: 700 22px/1 "Fredoka", sans-serif; }
+.nightbar .logo-mark { width: 40px; height: 36px; }
+.nightbar .lm, .nightbar .lh { fill: #fff; }
+.nightbar .le { fill: #0B0B14; }
+.nightbar nav { margin-left: auto; display: flex; }
+.nightbar nav a { color: rgba(255, 255, 255, .85); text-decoration: none; font-weight: 700; padding: 10px 10px; border-radius: 12px; min-height: 44px; display: inline-flex; align-items: center; }
+.nightbar nav a:hover { color: #fff; background: rgba(255, 255, 255, .12); }
+@media (max-width: 480px) { .brand-link span { display: none; } .nightbar nav a { padding: 10px 7px; font-size: 15px; } }

@@ -18,6 +18,8 @@
     root.setAttribute('data-lang', lang);
     root.setAttribute('lang', lang);
     if (titles[lang]) document.title = titles[lang];
+    var b = document.querySelector('.langbtn');
+    if (b) b.setAttribute('aria-label', lang === 'fr' ? 'Read in English' : 'Lire en français');
   }
 
   apply(pick());
@@ -50,7 +52,16 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     titles.fr = titles.fr || document.title;
+    apply(root.getAttribute('data-lang'));
     story();
+
+    // Barre du haut : fond de nuit dès qu'on a un peu défilé.
+    var bar = document.querySelector('.topbar.over');
+    if (bar) {
+      var solid = function () { bar.classList.toggle('solid', window.scrollY > 24); };
+      window.addEventListener('scroll', solid, { passive: true });
+      solid();
+    }
     var btn = document.querySelector('.langbtn');
     if (!btn) return;
     btn.addEventListener('click', function () {

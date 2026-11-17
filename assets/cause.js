@@ -9,6 +9,7 @@
     var stage = story.querySelector('.cstage');
     var chaps = Array.prototype.slice.call(stage.querySelectorAll('.chap')); // intro + 6 chapitres
     var flow = stage.querySelector('.flow-rect');
+    var lake = stage.querySelector('.lake-g');
     var cue = stage.querySelector('.scroll-cue');
     var jumper = stage.querySelector('.jumper');
     var inner = jumper.querySelector('.jumper-in');
@@ -88,7 +89,10 @@
       var range = r.height - window.innerHeight;
       var p = range > 0 ? clamp(-r.top / range) : 0;
       stage.style.setProperty('--p', (p * 0.45).toFixed(4));
-      flow.setAttribute('height', (10 + clamp((p - 0.04) / 0.86) * 390).toFixed(1));
+      // le ruisseau descend de la colline (0 → 60 % du récit), puis le lac s'étale (55 → 100 %)
+      flow.setAttribute('height', (8 + clamp((p - 0.04) / 0.56) * 232).toFixed(1));
+      var q = 0.02 + 0.98 * clamp((p - 0.55) / 0.4);
+      lake.setAttribute('transform', 'translate(720 0) scale(' + q.toFixed(3) + ' 1) translate(-720 0)');
       if (cue) cue.style.opacity = String(clamp(1 - p * 12));
       go(Math.min(chaps.length - 1, Math.floor(p * chaps.length)));
     }

@@ -52,7 +52,7 @@ a { color: var(--link); text-underline-offset: 3px; }
 h1, h2, h3 { font-family: "Fredoka", "Nunito", sans-serif; font-weight: 700; line-height: 1.15; margin: 0; }
 p { margin: 0 0 12px; }
 :focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; border-radius: 6px; }
-.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); color: var(--ink); padding: 8px 14px; border-radius: 10px; z-index: 10; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); color: var(--ink); padding: 8px 14px; border-radius: 10px; z-index: 40; }
 .skip:focus { left: 8px; }
 .icon { width: 24px; height: 24px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
@@ -75,7 +75,18 @@ html[data-lang="en"] body [lang="fr"] { display: none !important; }
   font: 700 15px/1 "Nunito", sans-serif; transition: border-color .2s, background-color .2s;
 }
 .langbtn:hover { border-color: #fff; background: rgba(255, 255, 255, .1); }
-@media (max-width: 600px) { .topnav { display: none; } .langbtn { margin-left: auto; } }
+.l-short { display: none; }
+.topnav a[aria-current="page"] { color: #fff; background: rgba(255, 255, 255, .14); }
+/* Sur téléphone : logo seul, menu compact, langue en 2 lettres. */
+@media (max-width: 600px) {
+  .logo-text { display: none; }
+  .topnav { gap: 0; }
+  .topnav a { padding: 10px 7px; font-size: 15px; min-height: 44px; display: inline-flex; align-items: center; }
+  .langbtn { min-width: 44px; padding: 0 10px; margin-left: 4px; }
+  .l-long { display: none; }
+  .l-short { display: inline; }
+}
+@media (max-width: 360px) { .topnav a { padding: 10px 5px; font-size: 14px; } }
 
 /* ---------- Mise en page ---------- */
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
@@ -105,7 +116,10 @@ section { padding: 64px 0; }
 /* ---------- Paysage de nuit (héros des pages) ----------
    Ciel, lumière qui se lève derrière les crêtes, 3 plans de collines.
    Les couleurs changent par page via les variables --sky-*, --hill-*, --glow. */
-.topbar.over { position: absolute; inset: 0 0 auto; z-index: 20; background: transparent; }
+/* Barre du haut : transparente sur le ciel, puis fond de nuit flouté dès qu'on descend. */
+.topbar.over { position: fixed; inset: 0 0 auto; z-index: 20; background: transparent; transition: background-color .3s, box-shadow .3s; }
+.topbar.over.solid { background: rgba(10, 10, 38, .8); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 1px 0 rgba(255, 255, 255, .08); }
+html { scroll-padding-top: 76px; }
 .scene {
   --sky-top: #0A0A26; --sky-mid: #2B1D5E; --sky-low: #8D74C9;
   --hill-back: #3E2C6E; --hill-mid: #22174A; --hill-front: #0C0920;
@@ -218,10 +232,10 @@ html.motion .scroll-cue .icon { animation: bob 1.6s ease-in-out infinite; }
 .cause { background: var(--surface); }
 .cause .wrap { display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: start; }
 .paw-badge { width: 120px; height: 120px; border-radius: 32px; background: var(--bg); display: grid; place-items: center; color: var(--link); }
-.paw-badge svg { width: 68px; height: 68px; fill: currentColor; }
+.paw-badge .cat-svg { position: static; width: 84px; height: 98px; }
 .cause h2 { font-size: clamp(28px, 4vw, 38px); margin-bottom: 12px; }
 .cause p { max-width: 62ch; }
-@media (max-width: 600px) { .cause .wrap { grid-template-columns: 1fr; } .paw-badge { width: 88px; height: 88px; border-radius: 24px; } .paw-badge svg { width: 50px; height: 50px; } }
+@media (max-width: 600px) { .cause .wrap { grid-template-columns: 1fr; } .paw-badge { width: 96px; height: 96px; border-radius: 24px; } .paw-badge .cat-svg { width: 66px; height: 78px; } }
 
 /* ---------- Contact ---------- */
 .contact-card { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 28px; background: var(--surface); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); }
@@ -474,7 +488,8 @@ html:not(.motion) .trail-svg { display: none; }
 
 /* ---------- La cause : récit au défilement (comme l'accueil) ---------- */
 .scene .cat-svg { filter: drop-shadow(0 0 1px rgba(255, 255, 255, .55)) drop-shadow(0 0 10px rgba(150, 130, 255, .3)); }
-.lake { position: absolute; left: 0; bottom: 0; width: 100%; height: 44%; z-index: -1; pointer-events: none; }
+.fore { height: 58%; transform: translateY(calc(var(--p) * 6%)); }
+.cstage .hills-back { height: 64%; }
 .glints { animation: shimmer 2.6s ease-in-out infinite alternate; }
 @keyframes shimmer { from { opacity: .35; } to { opacity: .9; } }
 .jumper { display: none; }
@@ -488,18 +503,17 @@ html:not(.motion) .trail-svg { display: none; }
 .ccards { display: grid; gap: 120px; max-width: 760px; margin: 0 auto; }
 .cstage .tale { position: relative; }
 html:not(.motion) .cstage .hills-back { height: 42vh; }
-html:not(.motion) .cstage .hills-mid { height: 34vh; }
-html:not(.motion) .cstage .hills-front { height: 28vh; }
-html:not(.motion) .cstage .lake { height: 34vh; }
+html:not(.motion) .cstage .fore { height: 46vh; }
 
 /* Avec mouvement : scène collée, un chapitre à la fois, le chat saute. */
 html.motion .cstory { height: 780vh; }
 html.motion .cstage { position: sticky; top: 0; height: 100vh; height: 100svh; padding: 0; }
+/* Les chapitres cachés restent lisibles par les lecteurs d'écran (pas de visibility: hidden). */
 html.motion .cintro, html.motion .ccards .chap {
-  opacity: 0; visibility: hidden; transform: translateY(26px) scale(.98);
-  transition: opacity .5s ease-out, transform .5s ease-out, visibility 0s .5s;
+  opacity: 0; pointer-events: none; transform: translateY(26px) scale(.98);
+  transition: opacity .5s ease-out, transform .5s ease-out;
 }
-html.motion .chap.is-active { opacity: 1; visibility: visible; transform: none; transition: opacity .5s ease-out .12s, transform .5s ease-out .12s, visibility 0s; }
+html.motion .chap.is-active { opacity: 1; pointer-events: auto; transform: none; transition: opacity .5s ease-out .12s, transform .5s ease-out .12s; }
 html.motion .cintro { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 16px 18vh; margin: 0; }
 html.motion .ccards { position: absolute; inset: 0; max-width: none; margin: 0; padding: 120px 7% 24vh; display: grid; align-items: center; gap: 0; }
 html.motion .ccards .tale { grid-area: 1 / 1; width: min(560px, 100%); justify-self: start; }
@@ -516,7 +530,6 @@ html.motion .jumper.on { opacity: 1; }
   html.motion .ccards { padding: 96px 16px 26vh; }
   html.motion .ccards .tale, html.motion .ccards .tale[data-cat="right"] { width: 100%; justify-self: stretch; }
   html.motion .jumper { width: 160px; height: 72px; }
-  .lake { height: 34%; }
   .cstage .tale { font-size: 16px; }
 }
 
@@ -524,3 +537,12 @@ html.motion .jumper.on { opacity: 1; }
 .cause-end { background: linear-gradient(180deg, #1A1856 0%, #0A0A26 100%); color: #fff; padding: 24px 0 72px; }
 .cause-end .cat-svg { filter: drop-shadow(0 0 1px rgba(255, 255, 255, .6)) drop-shadow(0 0 10px rgba(150, 130, 255, .35)); }
 .cause-end .cause-cta p { color: rgba(255, 255, 255, .82); }
+
+/* Accueil : le prochain jeu, un chat qui fait la sieste en attendant */
+.game-soon .cat-svg { position: static; width: 120px; height: 68px; margin-bottom: 4px; }
+
+/* Page 404 */
+.lost { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; }
+.lost .wrap { width: 100%; }
+.lost .lost-cat { position: static; display: block; width: 220px; height: 130px; margin: 0 auto 6px; }
+.lost .actions { justify-content: center; margin-top: 26px; }
