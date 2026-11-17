@@ -1,77 +1,136 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-lang="fr" data-title-en="minougame — little mobile games for a better cause">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>minougame — vibe coding for a better cause</title>
+<title>minougame — petits jeux mobiles pour une bonne cause</title>
+<script src="assets/lang.js"></script>
 <meta name="description" content="minougame, petit studio de jeux mobiles. Snek : le Snake revisité. Les publicités de nos jeux servent à nourrir des animaux abandonnés.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="minougame">
+<meta property="og:description" content="Petits jeux mobiles pour une bonne cause. Little mobile games for a better cause.">
+<meta property="og:image" content="https://theotari.github.io/assets/snek/feature-graphic.jpg">
 <link rel="icon" href="assets/favicon.png">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="preload" href="assets/fonts/Fredoka-Bold.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-<header class="brand">
-  <img src="assets/minougame-logo.png" alt="Logo minougame : un M avec un petit chat">
-  <div class="name">minougame</div>
-  <div class="tagline">vibe coding for a better cause</div>
+<a class="skip" href="#main"><span lang="fr">Aller au contenu</span><span lang="en">Skip to content</span></a>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="./"><img src="assets/minougame-logo.png" width="36" height="36" alt="">minougame</a>
+    <nav class="topnav" aria-label="Menu">
+      <a href="#jeux"><span lang="fr">Jeux</span><span lang="en">Games</span></a>
+      <a href="#cause"><span lang="fr">La cause</span><span lang="en">Our cause</span></a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="langbtn" type="button"><span lang="fr">English</span><span lang="en">Français</span></button>
+  </div>
 </header>
-<nav class="lang"><a href="#fr">Français</a> · <a href="#en">English</a></nav>
-<main>
 
-<section id="fr" lang="fr">
-  <h1>Bienvenue chez minougame</h1>
-  <p>minougame est un tout petit studio de jeux mobiles, fait avec beaucoup d’amour pour les animaux.</p>
-
-  <div class="card game">
-    <img src="assets/snek-icon.png" alt="Icône du jeu Snek">
-    <div>
-      <h2>Snek</h2>
-      <p>Le Snake revisité : niveaux générés à l’infini, 50 skins, plus de 80 accessoires, 11 maps et des coffres à ouvrir. Jouable hors ligne, gratuit, sans achat en argent réel.</p>
-      <p class="muted">Bientôt sur Google Play.</p>
+<main id="main">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1 lang="fr">Des petits jeux mobiles, pour une <span class="accent">bonne cause</span>.</h1>
+        <h1 lang="en">Little mobile games, for a <span class="accent">better cause</span>.</h1>
+        <p class="lead" lang="fr">minougame est un tout petit studio fait avec beaucoup d’amour pour les animaux. Nos jeux sont gratuits, et leurs publicités aident à nourrir des animaux abandonnés.</p>
+        <p class="lead" lang="en">minougame is a tiny studio made with a lot of love for animals. Our games are free, and their ads help feed abandoned animals.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#jeux"><span lang="fr">Voir nos jeux</span><span lang="en">See our games</span></a>
+          <a class="btn btn-ghost" href="#cause"><span lang="fr">Notre cause</span><span lang="en">Our cause</span></a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <img class="logo-big" src="assets/minougame-logo.png" width="512" height="512" alt="">
+        <img class="sticker" src="assets/snek/icon-192.png" width="192" height="192" alt="">
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="card">
-    <h2><span class="paw" aria-hidden="true">🐾</span> Nos publicités ont une cause</h2>
-    <p>Les publicités de nos jeux servent à nourrir des animaux abandonnés. Une partie des revenus est reversée à des associations qui protègent leurs droits et leur offrent de meilleures conditions en refuge.</p>
-    <p>Le détail (associations, montants) n’est pas public, mais nous l’envoyons volontiers : écris-nous à <a href="mailto:minougame.dev@gmail.com">minougame.dev@gmail.com</a> et tu recevras une réponse détaillée.</p>
-  </div>
+  <section id="jeux">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" lang="fr">Nos jeux</span><span class="eyebrow" lang="en">Our games</span>
+        <h2 lang="fr">À quoi on joue ?</h2>
+        <h2 lang="en">What are we playing?</h2>
+        <p class="muted" lang="fr">Chaque jeu a sa page : captures, contenu et informations de confidentialité.</p>
+        <p class="muted" lang="en">Each game has its own page: screenshots, content and privacy information.</p>
+      </div>
 
-  <div class="card">
-    <h2>Contact et informations</h2>
-    <p>E-mail : <a href="mailto:minougame.dev@gmail.com">minougame.dev@gmail.com</a></p>
-    <p><a href="privacy.html">Politique de confidentialité de Snek</a></p>
-  </div>
-</section>
-
-<hr class="sep">
-
-<section id="en" lang="en">
-  <h1>Welcome to minougame</h1>
-  <p>minougame is a tiny mobile game studio, made with a lot of love for animals.</p>
-
-  <div class="card game">
-    <img src="assets/snek-icon.png" alt="Snek game icon">
-    <div>
-      <h2>Snek</h2>
-      <p>Snake reimagined: endless generated levels, 50 skins, 80+ accessories, 11 maps and chests to open. Plays offline, free, no real-money purchases.</p>
-      <p class="muted">Coming soon to Google Play.</p>
+      <ul class="games">
+        <li class="game-card">
+          <img class="game-cover" src="assets/snek/feature-graphic.jpg" width="1024" height="500" alt="">
+          <div class="game-body">
+            <img class="game-icon" src="assets/snek/icon-192.png" width="72" height="72" alt="">
+            <h3><a class="stretched" href="snek/">Snek</a></h3>
+            <p lang="fr">Le Snake revisité : niveaux générés à l’infini, 50 skins, plus de 80 accessoires, 11 maps et des coffres à ouvrir.</p>
+            <p lang="en">Snake reimagined: endless generated levels, 50 skins, 80+ accessories, 11 maps and chests to open.</p>
+            <ul class="chips">
+              <li>Android</li>
+              <li><span lang="fr">Gratuit</span><span lang="en">Free</span></li>
+              <li><span lang="fr">Hors ligne</span><span lang="en">Offline</span></li>
+              <li><span lang="fr">Bientôt</span><span lang="en">Coming soon</span></li>
+            </ul>
+            <span class="more" aria-hidden="true"><span lang="fr">Découvrir Snek</span><span lang="en">Discover Snek</span>
+              <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          </div>
+        </li>
+        <li class="game-soon">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3"/><path d="M12 18v3"/><path d="M3 12h3"/><path d="M18 12h3"/><path d="m5.6 5.6 2.1 2.1"/><path d="m16.3 16.3 2.1 2.1"/><path d="m5.6 18.4 2.1-2.1"/><path d="m16.3 7.7 2.1-2.1"/></svg>
+          <h3 lang="fr">Le prochain jeu</h3>
+          <h3 lang="en">The next game</h3>
+          <p lang="fr">Il est en préparation. Il aura sa page ici dès sa sortie.</p>
+          <p lang="en">It’s in the works. It will get its page here as soon as it’s out.</p>
+        </li>
+      </ul>
     </div>
-  </div>
+  </section>
 
-  <div class="card">
-    <h2><span class="paw" aria-hidden="true">🐾</span> Our ads have a cause</h2>
-    <p>The ads in our games help feed abandoned animals. Part of the revenue is donated to organisations that protect their rights and give them better living conditions in shelters.</p>
-    <p>The details (organisations, amounts) are not public, but we are happy to share them: write to <a href="mailto:minougame.dev@gmail.com">minougame.dev@gmail.com</a> and you will get a detailed answer.</p>
-  </div>
+  <section id="cause" class="cause">
+    <div class="wrap">
+      <div class="paw-badge" aria-hidden="true">
+        <svg viewBox="0 0 64 64"><ellipse cx="32" cy="44" rx="14" ry="12"/><circle cx="14" cy="28" r="6"/><circle cx="25" cy="15" r="6"/><circle cx="39" cy="15" r="6"/><circle cx="50" cy="28" r="6"/></svg>
+      </div>
+      <div>
+        <span class="eyebrow" lang="fr">La cause</span><span class="eyebrow" lang="en">Our cause</span>
+        <h2 lang="fr">Nos publicités ont une cause</h2>
+        <h2 lang="en">Our ads have a cause</h2>
+        <p lang="fr">Les publicités de nos jeux servent à nourrir des animaux abandonnés. Une partie des revenus est reversée à des associations qui protègent leurs droits et leur offrent de meilleures conditions en refuge.</p>
+        <p lang="en">The ads in our games help feed abandoned animals. Part of the revenue is donated to organisations that protect their rights and give them better living conditions in shelters.</p>
+        <p class="muted" lang="fr">Le détail (associations, montants) n’est pas public, mais nous l’envoyons volontiers : écris-nous à <a href="mailto:minougame.dev@gmail.com">minougame.dev@gmail.com</a> et tu recevras une réponse détaillée.</p>
+        <p class="muted" lang="en">The details (organisations, amounts) are not public, but we are happy to share them: write to <a href="mailto:minougame.dev@gmail.com">minougame.dev@gmail.com</a> and you will get a detailed answer.</p>
+      </div>
+    </div>
+  </section>
 
-  <div class="card">
-    <h2>Contact and information</h2>
-    <p>Email: <a href="mailto:minougame.dev@gmail.com">minougame.dev@gmail.com</a></p>
-    <p><a href="privacy.html#en">Snek privacy policy</a></p>
-  </div>
-</section>
-
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-card">
+        <div>
+          <h2 lang="fr">Une question, une idée ?</h2>
+          <h2 lang="en">A question, an idea?</h2>
+          <p class="muted" lang="fr">Un bug, une suggestion ou juste un bonjour : on lit tout.</p>
+          <p class="muted" lang="en">A bug, a suggestion or just hello: we read everything.</p>
+        </div>
+        <a class="btn btn-primary" href="mailto:minougame.dev@gmail.com">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <span lang="fr">Nous écrire</span><span lang="en">Email us</span>
+        </a>
+      </div>
+    </div>
+  </section>
 </main>
-<footer>© 2026 minougame · Polices Fredoka et Nunito sous licence SIL Open Font License 1.1</footer>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 minougame</span>
+    <span>
+      <a href="privacy.html" lang="fr">Confidentialité de Snek</a><a href="privacy.html#en" lang="en">Snek privacy policy</a>
+      · <span lang="fr">Polices Fredoka et Nunito (SIL OFL 1.1), icônes Lucide (ISC)</span><span lang="en">Fredoka and Nunito fonts (SIL OFL 1.1), Lucide icons (ISC)</span>
+    </span>
+  </div>
+</footer>
 </body>
 </html>
